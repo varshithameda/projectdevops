@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ecommerce-demo
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: ecommerce-demo
+  template:
+    metadata:
+      labels:
+        app: ecommerce-demo
+    spec:
+      containers:
+        - name: ecommerce
+          image: srivarshithameda/week12:ecommercedemoapp
+          ports:
+            - containerPort: 5000
