@@ -1,7 +1,19 @@
-{% extends "base.html" %}
-{% block content %}
-<h3>{{ product.name }}</h3>
-<p>{{ product.desc }}</p>
-<h4>Price: ${{ product.price }}</h4>
-<a href="/" class="btn btn-secondary">← Back to Home</a>
-{% endblock %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ product.name }}</title>
+    <style>
+        body { font-family: Arial; text-align: center; }
+        .box { display: inline-block; border: 1px solid #ccc; padding: 20px; border-radius: 10px; }
+        a { text-decoration: none; color: white; background: #007bff; padding: 6px 12px; border-radius: 4px; }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h2>{{ product.name }}</h2>
+        <p>{{ product.desc }}</p>
+        <p><b>Price:</b> ₹{{ product.price }}</p>
+        <a href="/">Back to Home</a>
+    </div>
+</body>
+</html>

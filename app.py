@@ -1,8 +1,8 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
-# Dummy product list
+# Sample products
 products = [
     {"id": 1, "name": "Smartphone", "price": 699, "desc": "Latest 5G smartphone"},
     {"id": 2, "name": "Laptop", "price": 999, "desc": "Lightweight and powerful"},

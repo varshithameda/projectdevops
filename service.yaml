@@ -5,8 +5,9 @@ metadata:
 spec:
   type: NodePort
   selector:
-    app: ecommerce
+    app: ecommerce-demo
   ports:
-    - port: 5000
+    - protocol: TCP
+      port: 80
       targetPort: 5000
       nodePort: 30080
