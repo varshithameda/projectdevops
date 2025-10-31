@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login - Ecommerce</title>
+    <style>
+        body { font-family: Arial; text-align: center; margin-top: 100px; }
+        input { padding: 8px; width: 200px; }
+        button { padding: 8px 16px; background: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer; }
+        button:hover { background: #0056b3; }
+    </style>
+</head>
+<body>
+    <h2>Login to Ecommerce</h2>
+    <form method="POST">
+        <input type="text" name="username" placeholder="Enter username"><br><br>
+        <button type="submit">Login</button>
+    </form>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <p style="color:red;">{{ messages[0] }}</p>
+      {% endif %}
+    {% endwith %}
+</body>
+</html>
