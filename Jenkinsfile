@@ -35,7 +35,6 @@ pipeline {
                 set KUBECONFIG=C:\\Users\\abhi\\.kube\\config
                 kubectl apply -f deployment.yaml
                 kubectl apply -f service.yaml
-                bat "kubectl rollout restart deployment ecommerce-demo"
                 '''
             }
         }
