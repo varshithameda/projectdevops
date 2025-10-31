@@ -3,14 +3,14 @@ pipeline {
 
     environment {
         APP_NAME = "ecommerce-demo"
-        DOCKER_IMAGE = "srivarshithameda/week12:ecommercedemoapp"
+        DOCKER_IMAGE = "srivarshithameda/week12:ecommercedemoapp-v2"
     }
 
     stages {
         stage('Build Docker Image') {
             steps {
                 echo "Building Docker Image..."
-                bat "docker build -t %APP_NAME%:v1 ."
+                bat "docker build -t %APP_NAME%:v2 ."
             }
         }
 
@@ -23,7 +23,7 @@ pipeline {
         stage('Push Docker Image') {
             steps {
                 echo "Tag and Push Image to Docker Hub..."
-                bat "docker tag %APP_NAME%:v1 %DOCKER_IMAGE%"
+                bat "docker tag %APP_NAME%:v2 %DOCKER_IMAGE%"
                 bat "docker push %DOCKER_IMAGE%"
             }
         }
@@ -35,6 +35,7 @@ pipeline {
                 set KUBECONFIG=C:\\Users\\abhi\\.kube\\config
                 kubectl apply -f deployment.yaml
                 kubectl apply -f service.yaml
+                bat "kubectl rollout restart deployment ecommerce-demo"
                 '''
             }
         }
